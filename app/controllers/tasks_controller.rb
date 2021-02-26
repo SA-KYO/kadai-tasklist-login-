@@ -3,11 +3,7 @@ class TasksController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
 
   def index
-    if logged_in?
-      # ログインユーザのIDで登録されたタスクのみを表示
-      @user = current_user
       @tasks = current_user.tasks.order('created_at DESC').page(params[:page]).per(10)
-    end
   end
 
   def create
