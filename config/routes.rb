@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
 
- 
   get 'signup', to: 'users#new'
 
   get 'login',     to: 'sessions#new'
@@ -13,5 +9,5 @@ Rails.application.routes.draw do
   root to: 'tasks#index'
 
   resources :tasks
-  resources :users, only: [:new, :show, :create]
+  resources :users, only: [:new, :create]
 end
